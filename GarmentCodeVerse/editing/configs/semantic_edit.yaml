@@ -1,0 +1,142 @@
+version: 2
+expected_source_count: 100
+
+magnitude:
+  slightly: {strength: 0.20}
+  moderately: {strength: 0.35}
+  significantly: {strength: 0.50}
+
+magnitude_attempt_order:
+  - moderately
+  - significantly
+
+rules:
+  shirt_fit:
+    enabled: true
+    semantic_group: upper
+    structural_level: 0
+    effect_metric: full_torso_width_cm
+    effect_contract: topology_preserving
+    perceptibility_cm: 10.0
+    metric_threshold_cm: 10.0
+    parameter_specs:
+      width: {edit_mode: safe_span, value_type: float, safe_bounds: [0.8, 1.3]}
+
+  shirt_length:
+    enabled: true
+    semantic_group: upper
+    structural_level: 0
+    effect_metric: torso_length_cm
+    effect_contract: topology_preserving
+    perceptibility_cm: 0.1
+    metric_threshold_cm: 12.0
+    boundary_threshold_cm: 12.0
+    parameter_delta_mode: relative
+    min_parameter_delta: 0.34
+    parameter_specs:
+      length: {edit_mode: multiplicative, value_type: float, safe_bounds: [0.5, 2.2]}
+
+  neckline_type:
+    enabled: true
+    semantic_group: collar
+    structural_level: 1
+    effect_metric: bilateral_front_neckline_cm
+    effect_contract: boundary_topology_change
+    perceptibility_cm: 2.0
+    metric_threshold_cm: 2.0
+    parameter_specs:
+      front_type:
+        edit_mode: enum
+        value_type: enum
+        transitions:
+          - CircleNeckHalf
+          - CurvyNeckHalf
+          - VNeckHalf
+          - SquareNeckHalf
+          - CircleArcNeckHalf
+          - Bezier2NeckHalf
+
+  hood_presence:
+    enabled: true
+    semantic_group: collar
+    structural_level: 2
+    effect_metric: hood_membership
+    effect_contract: exact_membership_change
+    perceptibility_cm: 0.0
+    parameter_specs:
+      style: {edit_mode: enum, value_type: enum, transitions: [null, Hood2Panels]}
+
+  collar_presence:
+    enabled: true
+    semantic_group: collar
+    structural_level: 2
+    effect_metric: collar_membership
+    effect_contract: exact_membership_change
+    perceptibility_cm: 0.0
+    parameter_specs:
+      style: {edit_mode: enum, value_type: enum, transitions: [null, SimpleLapel]}
+
+  sleeve_presence:
+    enabled: true
+    semantic_group: sleeve
+    structural_level: 2
+    effect_metric: sleeve_armhole_membership
+    effect_contract: exact_membership_change
+    perceptibility_cm: 0.0
+    parameter_specs:
+      sleeveless: {edit_mode: toggle, value_type: bool, transitions: [false, true]}
+
+  sleeve_length:
+    enabled: true
+    semantic_group: sleeve
+    structural_level: 0
+    effect_metric: sleeve_seam_length_cm
+    effect_contract: topology_preserving
+    perceptibility_cm: 2.5
+    metric_threshold_cm: 4.0
+    boundary_threshold_cm: 10.0
+    parameter_delta_mode: relative
+    min_parameter_delta: 0.34
+    parameter_specs:
+      length: {edit_mode: multiplicative, value_type: float, safe_bounds: [0.1, 1.2]}
+
+  skirt_length:
+    enabled: true
+    semantic_group: skirt
+    structural_level: 0
+    effect_metric: skirt_length_cm
+    effect_contract: active_skirt_dispatch
+    perceptibility_cm: 0.1
+    metric_threshold_cm: 15.0
+    boundary_threshold_cm: 15.0
+    parameter_delta_mode: absolute
+    min_parameter_delta: 0.20
+    parameter_specs:
+      skirt: {edit_mode: safe_span, value_type: float, safe_bounds: [0.2, 0.95]}
+      flare_skirt: {edit_mode: safe_span, value_type: float, safe_bounds: [0.2, 0.95]}
+      pencil_skirt: {edit_mode: safe_span, value_type: float, safe_bounds: [0.3, 0.95]}
+      levels_skirt: {edit_mode: safe_span, value_type: float, safe_bounds: [0.3, 0.95]}
+
+  godet_insert_count:
+    enabled: true
+    semantic_group: skirt
+    structural_level: 2
+    effect_metric: exact_godet_insert_membership
+    effect_contract: exact_membership_change
+    perceptibility_cm: 0.0
+    parameter_specs:
+      num_inserts: {edit_mode: enum, value_type: int, transitions: [4, 6, 8, 10, 12]}
+
+  pants_length:
+    enabled: true
+    semantic_group: pants
+    structural_level: 0
+    effect_metric: pants_outseam_length_cm
+    effect_contract: topology_preserving
+    perceptibility_cm: 0.1
+    metric_threshold_cm: 15.0
+    boundary_threshold_cm: 12.0
+    parameter_delta_mode: absolute
+    min_parameter_delta: 0.20
+    parameter_specs:
+      length: {edit_mode: safe_span, value_type: float, safe_bounds: [0.2, 0.9]}

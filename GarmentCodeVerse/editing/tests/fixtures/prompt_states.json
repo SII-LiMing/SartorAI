@@ -1,0 +1,1271 @@
+{
+  "ambiguity_failure": {
+    "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+    "prompt_document": {
+      "body_prompt": "A canonical fixture body.",
+      "parts": {
+        "whole": {
+          "part_prompt": "A waist-length top with a round neckline and a V-neckline.",
+          "part_type": "top"
+        }
+      },
+      "sample_prompt": "A waist-length top with a round neckline and a V-neckline."
+    },
+    "expected_error_code": "ambiguous_protected_state",
+    "expected_error_message": "ambiguous neckline anchors: ['round neckline', 'V-neckline']"
+  },
+  "cases": [
+    {
+      "artifact_id": "asymmetric_generic_neckline",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: true\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "An asymmetric sleeveless hip-length top with a straight-cut silhouette and an asymmetric neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "An asymmetric sleeveless hip-length top with a straight-cut silhouette and an asymmetric neckline."
+      },
+      "extracted_states": {
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "fit_close_split_upper",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: Pants\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 0.8\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "bottom": {
+            "part_prompt": "full-length wide-leg pants.",
+            "part_type": "pants"
+          },
+          "upper": {
+            "part_prompt": "sleeveless close-fitting hip-length top with a straight-cut silhouette and a round neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless close-fitting hip-length top with a straight-cut silhouette and a round neckline, worn with a pair of full-length wide-leg pants."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CircleNeckHalf"
+          },
+          "phrase": "round neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CircleNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": true
+          },
+          "phrase": "close-fitting",
+          "rule_id": "shirt_fit",
+          "state_id": "close-fitting"
+        }
+      }
+    },
+    {
+      "artifact_id": "fit_loose",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.45\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless loose hip-length top with a flared silhouette and a round neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless loose hip-length top with a flared silhouette and a round neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CircleNeckHalf"
+          },
+          "phrase": "round neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CircleNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": true
+          },
+          "phrase": "loose",
+          "rule_id": "shirt_fit",
+          "state_id": "loose"
+        }
+      }
+    },
+    {
+      "artifact_id": "fit_unnamed_hoodless",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a round neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a round neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CircleNeckHalf"
+          },
+          "phrase": "round neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CircleNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "hooded",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: Hood2Panels\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a hood.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a hood."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": true,
+            "protected_phrase": "hood"
+          },
+          "phrase": "hooded",
+          "rule_id": "hood_presence",
+          "state_id": "hooded"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "lapel_01_split_stand_v",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: true\n      style:\n        v: SimpleLapel\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.68\n    width:\n      v: 0.19\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a split stand V-neck collar.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a split stand V-neck collar."
+      },
+      "extracted_states": {
+        "collar_presence": {
+          "attributes": {
+            "component_style": "SimpleLapel",
+            "present": true,
+            "subtype_phrase": "split stand V-neck collar"
+          },
+          "phrase": "having a split stand V-neck collar",
+          "rule_id": "collar_presence",
+          "state_id": "collared"
+        },
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "lapel_02_deep_v_frame",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: SimpleLapel\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.58\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a fold-over collar framing a deep V-shaped neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a fold-over collar framing a deep V-shaped neckline."
+      },
+      "extracted_states": {
+        "collar_presence": {
+          "attributes": {
+            "component_style": "SimpleLapel",
+            "present": true,
+            "subtype_phrase": "fold-over collar framing a deep V-shaped neckline"
+          },
+          "phrase": "having a fold-over collar framing a deep V-shaped neckline",
+          "rule_id": "collar_presence",
+          "state_id": "collared"
+        },
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "lapel_03_fold_over_v",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 6\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: SimpleLapel\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a fold-over V-neck collar.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a fold-over V-neck collar."
+      },
+      "extracted_states": {
+        "collar_presence": {
+          "attributes": {
+            "component_style": "SimpleLapel",
+            "present": true,
+            "subtype_phrase": "fold-over V-neck collar"
+          },
+          "phrase": "having a fold-over V-neck collar",
+          "rule_id": "collar_presence",
+          "state_id": "collared"
+        },
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "lapel_04_wide_shallow_v",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: SimpleLapel\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: SquareNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.65\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a wide fold-over collar framing a shallow V-shaped neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a wide fold-over collar framing a shallow V-shaped neckline."
+      },
+      "extracted_states": {
+        "collar_presence": {
+          "attributes": {
+            "component_style": "SimpleLapel",
+            "present": true,
+            "subtype_phrase": "wide fold-over collar framing a shallow V-shaped neckline"
+          },
+          "phrase": "having a wide fold-over collar framing a shallow V-shaped neckline",
+          "rule_id": "collar_presence",
+          "state_id": "collared"
+        },
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "lapel_05_wide",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 6\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: true\n      style:\n        v: SimpleLapel\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: SquareNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a wide fold-over collar.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a wide fold-over collar."
+      },
+      "extracted_states": {
+        "collar_presence": {
+          "attributes": {
+            "component_style": "SimpleLapel",
+            "present": true,
+            "subtype_phrase": "wide fold-over collar"
+          },
+          "phrase": "having a wide fold-over collar",
+          "rule_id": "collar_presence",
+          "state_id": "collared"
+        },
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "lapel_06_soft_v",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 3\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: SimpleLapel\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: SquareNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a soft fold-over V-neck collar.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a soft fold-over V-neck collar."
+      },
+      "extracted_states": {
+        "collar_presence": {
+          "attributes": {
+            "component_style": "SimpleLapel",
+            "present": true,
+            "subtype_phrase": "soft fold-over V-neck collar"
+          },
+          "phrase": "having a soft fold-over V-neck collar",
+          "rule_id": "collar_presence",
+          "state_id": "collared"
+        },
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "lapel_07_v_only",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: SimpleLapel\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: SquareNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "SquareNeckHalf"
+          },
+          "phrase": "V-neckline",
+          "rule_id": "neckline_type",
+          "state_id": "SquareNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "lapel_08_standing_v_constructor",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: true\n      style:\n        v: SimpleLapel\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: VNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a split stand V-neck collar.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a split stand V-neck collar."
+      },
+      "extracted_states": {
+        "collar_presence": {
+          "attributes": {
+            "component_style": "SimpleLapel",
+            "present": true,
+            "subtype_phrase": "split stand V-neck collar"
+          },
+          "phrase": "having a split stand V-neck collar",
+          "rule_id": "collar_presence",
+          "state_id": "collared"
+        },
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "lapel_09_split_stand",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: true\n      style:\n        v: SimpleLapel\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: SquareNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a split stand collar.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a split stand collar."
+      },
+      "extracted_states": {
+        "collar_presence": {
+          "attributes": {
+            "component_style": "SimpleLapel",
+            "present": true,
+            "subtype_phrase": "split stand collar"
+          },
+          "phrase": "having a split stand collar",
+          "rule_id": "collar_presence",
+          "state_id": "collared"
+        },
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "missing_upper_bottom_only",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: Pants\n    upper:\n      v: null\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A pair of full-length wide-leg pants.",
+            "part_type": "pants"
+          }
+        },
+        "sample_prompt": "A pair of full-length wide-leg pants."
+      },
+      "extracted_states": {}
+    },
+    {
+      "artifact_id": "neck_bezier_curved",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: Bezier2NeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.37\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a curved neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a curved neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "Bezier2NeckHalf"
+          },
+          "phrase": "curved neckline",
+          "rule_id": "neckline_type",
+          "state_id": "Bezier2NeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_bezier_notched",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.35\n    f_collar:\n      v: Bezier2NeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.38\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a notched V-neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a notched V-neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "Bezier2NeckHalf"
+          },
+          "phrase": "notched V-neckline",
+          "rule_id": "neckline_type",
+          "state_id": "Bezier2NeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_bezier_split",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.4\n    f_collar:\n      v: Bezier2NeckHalf\n    f_flip_curve:\n      v: true\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a split neckline featuring a V-shaped notch.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a split neckline featuring a V-shaped notch."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "Bezier2NeckHalf"
+          },
+          "phrase": "split neckline featuring a V-shaped notch",
+          "rule_id": "neckline_type",
+          "state_id": "Bezier2NeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_bezier_v",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: Bezier2NeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.6\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "Bezier2NeckHalf"
+          },
+          "phrase": "V-neckline",
+          "rule_id": "neckline_type",
+          "state_id": "Bezier2NeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_circle_arc_round",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleArcNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.37\n    width:\n      v: 0.0\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a rounded arc neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a rounded arc neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CircleArcNeckHalf"
+          },
+          "phrase": "rounded arc neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CircleArcNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_circle_arc_shallow_dip",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleArcNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.36\n    width:\n      v: 0.0\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a rounded neckline featuring a shallow center dip.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a rounded neckline featuring a shallow center dip."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CircleArcNeckHalf"
+          },
+          "phrase": "rounded neckline featuring a shallow center dip",
+          "rule_id": "neckline_type",
+          "state_id": "CircleArcNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_circle_arc_v",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleArcNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: -0.01\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CircleArcNeckHalf"
+          },
+          "phrase": "V-neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CircleArcNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_circle_deep_scoop",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.58\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a deep scoop neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a deep scoop neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CircleNeckHalf"
+          },
+          "phrase": "deep scoop neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CircleNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_circle_round",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a round neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a round neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CircleNeckHalf"
+          },
+          "phrase": "round neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CircleNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_circle_scoop",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CircleNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.48\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a scoop neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a scoop neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CircleNeckHalf"
+          },
+          "phrase": "scoop neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CircleNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_curvy_notched",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CurvyNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.38\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a notched V-neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a notched V-neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CurvyNeckHalf"
+          },
+          "phrase": "notched V-neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CurvyNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_curvy_soft",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CurvyNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a softly curved neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a softly curved neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CurvyNeckHalf"
+          },
+          "phrase": "softly curved neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CurvyNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_curvy_v_bezier",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.75\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CurvyNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CurvyNeckHalf"
+          },
+          "phrase": "V-neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CurvyNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_curvy_v_flip",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: CurvyNeckHalf\n    f_flip_curve:\n      v: true\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "CurvyNeckHalf"
+          },
+          "phrase": "V-neckline",
+          "rule_id": "neckline_type",
+          "state_id": "CurvyNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_square",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: SquareNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.4\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a square neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a square neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "SquareNeckHalf"
+          },
+          "phrase": "square neckline",
+          "rule_id": "neckline_type",
+          "state_id": "SquareNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_v_deep",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: VNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.61\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a deep V-neck.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a deep V-neck."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "VNeckHalf"
+          },
+          "phrase": "deep V-neck",
+          "rule_id": "neckline_type",
+          "state_id": "VNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    },
+    {
+      "artifact_id": "neck_v_regular",
+      "design_yaml": "design:\n  collar:\n    b_collar:\n      v: CircleNeckHalf\n    bc_depth:\n      v: 0.0\n    component:\n      depth:\n        v: 2\n      hood_depth:\n        v: 1.0\n      hood_length:\n        v: 1.0\n      lapel_standing:\n        v: false\n      style:\n        v: null\n    f_bezier_x:\n      v: 0.3\n    f_bezier_y:\n      v: 0.55\n    f_collar:\n      v: VNeckHalf\n    f_flip_curve:\n      v: false\n    fc_depth:\n      v: 0.6\n    width:\n      v: 0.2\n  left:\n    collar:\n      b_collar:\n        v: CircleNeckHalf\n      bc_depth:\n        v: 0.0\n      f_bezier_x:\n        v: 0.3\n      f_bezier_y:\n        v: 0.55\n      f_collar:\n        v: CircleNeckHalf\n      f_flip_curve:\n        v: false\n      fc_depth:\n        v: 0.4\n      width:\n        v: 0.2\n    enable_asym:\n      v: false\n    shirt:\n      flare:\n        v: 1.0\n      strapless:\n        v: false\n      width:\n        v: 1.0\n    sleeve:\n      armhole_shape:\n        v: ArmholeCurve\n      connect_ruffle:\n        v: 1.0\n      connecting_width:\n        v: 0.2\n      cuff:\n        cuff_len:\n          v: 0.1\n        skirt_flare:\n          v: 1.2\n        skirt_fraction:\n          v: 0.5\n        skirt_ruffle:\n          v: 1.0\n        top_ruffle:\n          v: 1.0\n        type:\n          v: null\n      end_width:\n        v: 1.0\n      length:\n        v: 0.3\n      opening_dir_mix:\n        v: 0.1\n      sleeve_angle:\n        v: 10\n      sleeveless:\n        v: true\n      smoothing_coeff:\n        v: 0.25\n      standing_shoulder:\n        v: false\n      standing_shoulder_len:\n        v: 5.0\n  meta:\n    bottom:\n      v: null\n    upper:\n      v: Shirt\n    wb:\n      v: null\n  pants:\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    flare:\n      v: 1.0\n    length:\n      v: 0.9\n    rise:\n      v: 0.75\n    width:\n      v: 1.0\n  shirt:\n    flare:\n      v: 1.0\n    length:\n      v: 1.2\n    openfront:\n      v: false\n    strapless:\n      v: false\n    width:\n      v: 1.0\n  sleeve:\n    armhole_shape:\n      v: ArmholeCurve\n    connect_ruffle:\n      v: 1.0\n    connecting_width:\n      v: 0.2\n    cuff:\n      cuff_len:\n        v: 0.1\n      skirt_flare:\n        v: 1.2\n      skirt_fraction:\n        v: 0.5\n      skirt_ruffle:\n        v: 1.0\n      top_ruffle:\n        v: 1.0\n      type:\n        v: null\n    end_width:\n      v: 1.0\n    length:\n      v: 0.3\n    opening_dir_mix:\n      v: 0.1\n    sleeve_angle:\n      v: 10\n    sleeveless:\n      v: true\n    smoothing_coeff:\n      v: 0.25\n    standing_shoulder:\n      v: false\n    standing_shoulder_len:\n      v: 5.0\n",
+      "prompt_document": {
+        "body_prompt": "A person 170.0 cm tall with a 100.0 cm bust, 70.0 cm waist, 90.0 cm hips, 80.0 cm leg length, and 60.0 cm arm length.",
+        "parts": {
+          "whole": {
+            "part_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline.",
+            "part_type": "top"
+          }
+        },
+        "sample_prompt": "A sleeveless hip-length top with a straight-cut silhouette and a V-neckline."
+      },
+      "extracted_states": {
+        "hood_presence": {
+          "attributes": {
+            "present": false
+          },
+          "phrase": "hoodless",
+          "rule_id": "hood_presence",
+          "state_id": "hoodless"
+        },
+        "neckline_type": {
+          "attributes": {
+            "constructor": "VNeckHalf"
+          },
+          "phrase": "V-neckline",
+          "rule_id": "neckline_type",
+          "state_id": "VNeckHalf"
+        },
+        "shirt_fit": {
+          "attributes": {
+            "protected_phrase_present": false
+          },
+          "phrase": "unnamed",
+          "rule_id": "shirt_fit",
+          "state_id": "unnamed"
+        }
+      }
+    }
+  ]
+}

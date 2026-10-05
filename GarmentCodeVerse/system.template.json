@@ -1,0 +1,10 @@
+{
+  "output": "./Logs/",
+  "design_file": "./assets/design_params/design_beautiful.yaml",
+  "datasets_path": "",
+  "datasets_sim": "",
+  "sim_configs_path": "./assets/Sim_props",
+  "bodies_default_path": "./assets/bodies",
+  "body_samples_path": "",
+  "body_samples": "5000_body_shapes_and_measures"
+}
