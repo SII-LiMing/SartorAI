@@ -269,8 +269,7 @@ workspace 存在时不要再次执行 `generate`，应先完成下面的仿真�
 
 ```bash
 python -B pattern_data_sim.py \
-  --data "$WORKSPACE" \
-  --config beautiful_sim_props.yaml
+  --data "$WORKSPACE"
 
 python -B filter_fail_sim.py \
   --gcd_dir "$WORKSPACE" \

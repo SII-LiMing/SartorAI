@@ -64,7 +64,7 @@ run_batch() {
     local workspace="$TMP_ROOT/${batch}_edit_output/.state/simulation_workspace"
     [[ -d "$workspace" && ! -L "$workspace" ]] || { echo "缺少 workspace：$workspace" >&2; return 2; }
     cd "$GCD_ROOT"
-    python -u -B pattern_data_sim.py --data "$workspace" --config beautiful_sim_props.yaml
+    python -u -B pattern_data_sim.py --data "$workspace"
     python -u -B filter_fail_sim.py --gcd_dir "$workspace" --body_type random_body --no-delete
     python -u -B "$SCRIPT_DIR/filter_report_compat.py" "$workspace"
 }

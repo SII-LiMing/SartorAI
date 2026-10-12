@@ -4,7 +4,9 @@
 
 from datetime import timedelta
 import json
+import os
 import yaml
+import uuid
 from numbers import Number
 import traceback
 import sys
@@ -60,39 +62,36 @@ class Properties():
         return key in self.properties
 
     def serialize(self, filename, backup=None):
-        """Log current props to file. If logging failed, at least restore
-        provided backup or originally loaded props
-            * backup is expected to be a Properties object
-        """
+        """Write atomically so an interrupted save preserves the last checkpoint."""
+        filename = Path(filename)
+        temporary = filename.with_name(f'.{filename.name}.{uuid.uuid4().hex}.tmp')
         try:
-            extention = Path(filename).suffix.lower()
-            if extention == '.json':
-                with open(filename, 'w') as f_json:
-                    json.dump(self.properties, f_json, indent=2, sort_keys=True)
-            elif extention == '.yaml':
-                with open(filename, 'w') as f:
+            extension = filename.suffix.lower()
+            if extension not in {'.json', '.yaml'}:
+                raise ValueError(f'{self.__class__.__name__}::ERROR::Unsupported file type on serialization: {extension}')
+            with open(temporary, 'x') as f:
+                if extension == '.json':
+                    json.dump(self.properties, f, indent=2, sort_keys=True)
+                else:
                     yaml.dump(
-                        self.properties, 
+                        self.properties,
                         f,
                         default_flow_style=False,
                         sort_keys=False
                     )
-            else:
-                raise ValueError(f'{self.__class__.__name__}::ERROR::Unsupported file type on serialization: {extention}')
-            
+                if filename.exists():
+                    os.chmod(temporary, filename.stat().st_mode & 0o777)
+                f.flush()
+                os.fsync(f.fileno())
+            os.replace(temporary, filename)
         except Exception as e:
             print('Exception occured while saving properties:')
-            traceback.print_exception(*sys.exc_info()) 
-            # save backup, s.t. the data is not lost due to interruption of
-            # the file override
-
-            if backup is not None: 
+            traceback.print_exception(*sys.exc_info())
+            if not filename.exists() and backup is not None:
                 backup.serialize(filename)
-            else:
-                with open(filename, 'w') as f_json:
-                    json.dump(self.properties_on_load, f_json,
-                              indent=2, sort_keys=True)
-            raise RuntimeError('Error occured while saving properties. Backup version is saved instead')
+            raise RuntimeError('Error saving properties; the previous checkpoint was left intact') from e
+        finally:
+            temporary.unlink(missing_ok=True)
 
     def merge(self, filename="", clean_stats=False, re_write=True,
               adding_tag='added'):

@@ -16,7 +16,7 @@ Run the examples from the `GarmentCodeVerse` directory. The script changes its w
 - Activate a Python environment with the [project dependencies](docs/Installation.md). The script uses `python` from the current environment and does not activate a conda environment.
 - Configure `system.json`: `design_file` selects the design YAML; `bodies_default_path` selects the default body directory; `body_samples_path` and `body_samples` locate the random body dataset.
 - For this wrapper, `datasets_path` and `datasets_sim` must resolve to the script directory, for example by setting both to `""` or `"."`. The wrapper locates batches under `<script_dir>/<name>` and does not follow other output roots.
-- Simulation uses `beautiful_sim_props.yaml` under `system.json`'s `sim_configs_path`.
+- Simulation reads `sim_config_file` from `system.json` (currently `./assets/Sim_props/gcd_verse_sim_props.yaml`). Direct calls to `pattern_data_sim.py` can override it with `--config`, using a filename under `sim_configs_path` or an absolute path.
 
 ## Basic usage
 
@@ -54,6 +54,7 @@ Command-line values override the defaults in the script.
 | `--size` | `140000` | Target number of designs across all batches. |
 | `--batch_size` | `1000` | Target number of designs per batch. |
 | `--parallel_jobs` | `6` | Maximum number of concurrent batch workers. |
+| `--max_hours` | `0` | Hours from command startup before pausing simulation; `0` disables the limit. Requires `--op simulate` when nonzero. |
 | `--seed` | `42` | Global seed used to derive each batch's sampling seed. |
 | `--batch_list` | `all` | Batch indices to process. |
 | `--body_type` | See below | `random_body`, `default_body`, or `both`. |
@@ -125,6 +126,23 @@ A failure stops the remaining stages for that batch; other batches continue. Bat
 
 Choose concurrency according to available CPU, memory, and GPU resources; the script does not assign a separate GPU to each worker.
 
+## Pausing and resuming simulation
+
+For an instance with a 24-hour limit, reserve time for workers to finish their current sample. For example, on a newly started instance:
+
+```bash
+bash one_key_batch.sh --name garmentcode_4k_dress --size 4000 --batch_size 1000 \
+  --op simulate --batch_list all --seed 43 --body_type random_body --max_hours 23
+```
+
+`--max_hours` accepts decimal hours and counts from command startup, not instance startup. Subtract time already spent on the instance and leave a margin. The deadline is shared by all batches, including queued batches. Once it is reached, workers finish their current sample, save progress, and exit; queued batches are left for the next invocation. This is a soft deadline: a slow or stuck sample can delay exit, so do not set it to the instance's exact remaining lifetime.
+
+Wait until the wrapper prints `Simulation paused safely. All workers have exited` and returns to the shell before stopping the instance. A deliberate pause returns exit code `75`, completion returns `0`, and a batch failure returns `1`. Instance shutdown and restart are manual.
+
+After restarting the instance and activating the environment, run the same command again with a suitable new time budget. Keep the dataset directory on persistent storage, including each body's `dataset_properties_<body_type>.yaml`, sampled inputs, and simulation outputs. Completed attempts are skipped, and the single failure-retry pass resumes from its saved position. Do not rerun `sample` or delete progress files to resume.
+
+Progress files are written to a temporary file in the same directory, flushed, and atomically replaced. An interruption during saving therefore preserves the previous complete checkpoint. This does not save an individual sample's intermediate simulation frames: if the instance is forcibly stopped mid-sample, that unfinished sample is rerun.
+
 ## Sampling seeds
 
 The default global seed is `42`. Each batch receives a string seed:
@@ -172,7 +190,7 @@ Selecting one body type creates only its directory. Later stages place outputs u
 <name>/batch_<index>/<body_type>/renders/
 ```
 
-The simulation script gathers its preview images into `renders/`.
+The simulation script gathers its preview images into `renders/` when the batch finishes.
 
 ## Logs
 

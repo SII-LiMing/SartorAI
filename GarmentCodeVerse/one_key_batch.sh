@@ -7,9 +7,11 @@ sample_body_type=both
 size=140000
 batch_size=1000
 parallel_jobs=6
+max_hours=0
 seed=42
 batch_list=all
 op=""
+script_start_ts=$(date +%s)
 
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 cd "$script_dir"
@@ -17,7 +19,7 @@ cd "$script_dir"
 usage() {
     cat <<'EOF'
 Usage:
-  bash one_key_batch.sh [--name NAME] [--body_type random_body|default_body|both] [--size SIZE] [--batch_size BATCH_SIZE] [--parallel_jobs JOBS] [--seed SEED] [--batch_list LIST] [--op sample|simulate|filter|check]
+  bash one_key_batch.sh [--name NAME] [--body_type random_body|default_body|both] [--size SIZE] [--batch_size BATCH_SIZE] [--parallel_jobs JOBS] [--seed SEED] [--batch_list LIST] [--op sample|simulate|filter|check] [--max_hours HOURS]
 
 Defaults are defined in the script. Command-line values override them.
 Sampling defaults to both body types. --body_type selects which bodies to sample.
@@ -25,6 +27,8 @@ Later stages default to random_body; --body_type both also keeps that default.
 If --op is omitted, the full pipeline runs: sample -> simulate -> filter -> check.
 Only one --op is supported.
 Batch stages run in parallel across batches, limited by --parallel_jobs.
+--max_hours limits --op simulate only (0 = unlimited). At the shared deadline,
+workers finish their current sample, save progress, and exit with status 75.
 --batch_list defaults to all. Examples: --batch_list "0,2,5", --batch_list "batch_0,batch_2", --batch_list "0-3".
 EOF
 }
@@ -80,6 +84,11 @@ while [[ $# -gt 0 ]]; do
             seed=$2
             shift 2
             ;;
+        --max_hours)
+            require_value "$1" "${2-}"
+            max_hours=$2
+            shift 2
+            ;;
         --batch_list)
             require_value "$1" "${2-}"
             batch_list=$2
@@ -116,6 +125,7 @@ esac
 [[ "$size" =~ ^[1-9][0-9]*$ ]] || die "--size must be a positive integer"
 [[ "$batch_size" =~ ^[1-9][0-9]*$ ]] || die "--batch_size must be a positive integer"
 [[ "$parallel_jobs" =~ ^[1-9][0-9]*$ ]] || die "--parallel_jobs must be a positive integer"
+[[ "$max_hours" =~ ^[0-9]+([.][0-9]+)?$ ]] || die "--max_hours must be a nonnegative number"
 [[ -n "$seed" ]] || die "--seed must not be empty"
 [[ -n "$batch_list" ]] || die "--batch_list must not be empty"
 
@@ -127,6 +137,11 @@ if [[ -n "$op" ]]; then
     selected_ops=("$op")
 else
     selected_ops=(sample simulate filter check)
+fi
+
+simulation_deadline=$(awk -v hours="$max_hours" -v start="$script_start_ts" 'BEGIN {printf "%.0f", (hours > 0 ? start + hours * 3600 : 0)}')
+if [[ "$simulation_deadline" != 0 && "$op" != simulate ]]; then
+    die "--max_hours requires --op simulate"
 fi
 
 operations_include_sample=0
@@ -396,9 +411,9 @@ check_existing_batch_preconditions() {
 run_pattern_data_sim() {
     local batch_rel=$1
     if [[ "$body_type" == "default_body" ]]; then
-        python pattern_data_sim.py --data "$batch_rel" --config beautiful_sim_props.yaml --default_body
+        python pattern_data_sim.py --data "$batch_rel" --default_body --deadline "$simulation_deadline"
     else
-        python pattern_data_sim.py --data "$batch_rel" --config beautiful_sim_props.yaml
+        python pattern_data_sim.py --data "$batch_rel" --deadline "$simulation_deadline"
     fi
 }
 
@@ -606,6 +621,8 @@ downstream_worker_run_step() {
 
     if [[ $status -eq 0 ]]; then
         downstream_worker_log "$terminal_log" "$timing_log" "$batch_name" "END ${step_name}: elapsed=$(format_seconds "$elapsed") (${elapsed}s)"
+    elif [[ $status -eq 75 ]]; then
+        downstream_worker_log "$terminal_log" "$timing_log" "$batch_name" "PAUSED ${step_name}: elapsed=$(format_seconds "$elapsed") (${elapsed}s)"
     else
         downstream_worker_log "$terminal_log" "$timing_log" "$batch_name" "FAILED ${step_name}: exit_code=${status} elapsed=$(format_seconds "$elapsed") (${elapsed}s)"
     fi
@@ -659,9 +676,16 @@ run_downstream_batch() {
                     failed_step=precheck_simulate
                     break
                 fi
-                if ! downstream_worker_run_step "$terminal_log" "$timing_log" "$batch_name" "pattern_data_sim" run_pattern_data_sim "$batch_rel"; then
-                    batch_status=1
-                    failed_step=simulate
+                if downstream_worker_run_step "$terminal_log" "$timing_log" "$batch_name" "pattern_data_sim" run_pattern_data_sim "$batch_rel"; then
+                    :
+                else
+                    batch_status=$?
+                    if [[ $batch_status -eq 75 ]]; then
+                        failed_step=paused
+                    else
+                        batch_status=1
+                        failed_step=simulate
+                    fi
                     break
                 fi
                 ;;
@@ -702,6 +726,8 @@ run_downstream_batch() {
 
     if [[ $batch_status -eq 0 ]]; then
         downstream_worker_log "$terminal_log" "$timing_log" "$batch_name" "Downstream batch finished successfully: elapsed=$(format_seconds "$batch_elapsed") (${batch_elapsed}s)"
+    elif [[ $batch_status -eq 75 ]]; then
+        downstream_worker_log "$terminal_log" "$timing_log" "$batch_name" "Downstream batch paused safely: elapsed=$(format_seconds "$batch_elapsed") (${batch_elapsed}s)"
     else
         downstream_worker_log "$terminal_log" "$timing_log" "$batch_name" "Downstream batch failed at ${failed_step}: elapsed=$(format_seconds "$batch_elapsed") (${batch_elapsed}s)"
     fi
@@ -717,6 +743,7 @@ run_downstream_batch() {
 }
 
 declare -a failed_batches=()
+declare -a paused_batches=()
 declare -a failed_reasons=()
 declare -A batch_failed=()
 declare -A pid_to_batch=()
@@ -884,6 +911,9 @@ collect_downstream_job() {
 
     if [[ $status -eq 0 && "$failed_step" != "missing_status_file" ]]; then
         log_outer "END ${batch_name}: downstream status=success"
+    elif [[ $status -eq 75 && "$failed_step" == paused ]]; then
+        paused_batches+=("$batch_name")
+        log_outer "END ${batch_name}: downstream status=paused checkpoint_saved=true"
     else
         mark_batch_failed "$batch_name" "downstream:${failed_step}:exit_code=${status}"
         log_outer "END ${batch_name}: downstream status=failed failed_step=${failed_step} exit_code=${status}"
@@ -943,6 +973,11 @@ run_parallel_downstream_stage() {
         while (( active_downstream_jobs >= effective_parallel_jobs )); do
             wait_for_one_downstream_job
         done
+        if (( simulation_deadline > 0 && $(date +%s) >= simulation_deadline )); then
+            paused_batches+=("$batch_name")
+            log_outer "PAUSE ${batch_name}: deadline reached; batch not started"
+            continue
+        fi
         launch_downstream_job "$batch_index" "$batch_data_size"
     done
 
@@ -955,8 +990,10 @@ run_parallel_downstream_stage() {
     log_outer "Parallel downstream stage finished: elapsed=$(format_seconds "$downstream_elapsed") (${downstream_elapsed}s)"
 }
 
-script_start_ts=$(date +%s)
 log_outer "Pipeline started: name=${name} body_type=${body_type} sample_body_type=${sample_body_type} size=${size} batch_size=${batch_size} num_batches=${num_batches} selected_batch_count=${selected_batch_count} batch_list=${batch_list} selected_batches=${selected_batches_label} operations=${operations_label} seed=${seed} parallel_jobs=${parallel_jobs} effective_parallel_jobs=${effective_parallel_jobs} run_id=${run_id}"
+if (( simulation_deadline > 0 )); then
+    log_outer "Automatic pause: max_hours=${max_hours} deadline_unix=${simulation_deadline}; workers finish their current sample before exiting"
+fi
 log_outer "Outer logs: terminal_log=${outer_terminal_log} timing_log=${outer_timing_log} summary_log=${outer_summary_log}"
 
 if [[ $operations_include_sample -eq 1 ]]; then
@@ -966,12 +1003,17 @@ fi
 run_parallel_downstream_stage
 
 failed_count=${#failed_batches[@]}
-success_count=$((selected_batch_count - failed_count))
+paused_count=${#paused_batches[@]}
+success_count=$((selected_batch_count - failed_count - paused_count))
 script_end_ts=$(date +%s)
 script_elapsed=$((script_end_ts - script_start_ts))
 
 log_outer "Pipeline finished: elapsed=$(format_seconds "$script_elapsed") (${script_elapsed}s)"
-log_outer "Summary: success_batches=${success_count} failed_batches=${failed_count} selected_batches=${selected_batch_count} total_batches=${num_batches}"
+log_outer "Summary: success_batches=${success_count} failed_batches=${failed_count} paused_batches=${paused_count} selected_batches=${selected_batch_count} total_batches=${num_batches}"
+
+if (( paused_count > 0 )); then
+    log_outer "Paused batch list: $(join_by ", " "${paused_batches[@]}")"
+fi
 
 if (( failed_count > 0 )); then
     failed_list=$(join_by ", " "${failed_batches[@]}")
@@ -984,4 +1026,8 @@ if (( failed_count > 0 )); then
 fi
 
 log_outer "Failed batch list: none"
+if (( paused_count > 0 )); then
+    log_outer "Simulation paused safely. All workers have exited; rerun the same command to resume."
+    exit 75
+fi
 exit 0

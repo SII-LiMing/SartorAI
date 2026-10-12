@@ -30,13 +30,13 @@ from pygarment.meshgen.simulation import (
 
 
 def batch_sim(data_path, output_path, dataset_props,
-              run_default_body=False, num_samples=None, caching=False, force_restart=False):
+              run_default_body=False, num_samples=None, caching=False, force_restart=False,
+              should_pause=None):
     """
         Performs pattern simulation for each example in the dataset
         given by dataset_props.
         Batch processing is automatically resumed
-        from the last unporcessed datapoint if restart is not forced. The last
-        example on the processes list is assumed to cause the failure, so it can be later found in failure cases.
+        from the last unprocessed datapoint if restart is not forced.
 
         Parameters:
             * data_path -- path to folder with patterns (for given body type)
@@ -53,6 +53,7 @@ def batch_sim(data_path, output_path, dataset_props,
             * num_samples -- number of (unprocessed) samples from dataset to process with this run. If None, runs over all unprocessed samples
             * caching -- enables caching of every frame of simulation (disabled by default)
             * force_restart -- force restarting the batch processing even if resume conditions are met.
+            * should_pause -- optional callback checked before starting each sample.
 
     """
     # ----- Init -----
@@ -82,10 +83,14 @@ def batch_sim(data_path, output_path, dataset_props,
             print(f'{progress} status=already_processed', flush=True)
             continue
 
+        if should_pause is not None and should_pause():
+            print('[garmentcode-simulate] Pause requested; checkpointing before the next sample', flush=True)
+            break
+
         print(f'{progress} status=starting', flush=True)
-        dataset_props['sim']['stats']['processed'].append(pattern_name)
+        dataset_props['sim']['stats']['in_progress'] = pattern_name
         _serialize_props_with_sim_stats(dataset_props,
-                                        data_props_file)  # save info of processed files before potential crash
+                                        data_props_file)
 
         try:
             paths = PathCofig(
@@ -103,6 +108,8 @@ def batch_sim(data_path, output_path, dataset_props,
         else:
             template_simulation(paths, dataset_props, caching=caching)
 
+        dataset_props['sim']['stats']['processed'].append(pattern_name)
+        dataset_props['sim']['stats']['in_progress'] = None
         _serialize_props_with_sim_stats(dataset_props, data_props_file)
         print(f'{progress} status=attempt_finished', flush=True)
 
@@ -132,8 +139,13 @@ def batch_sim(data_path, output_path, dataset_props,
 
 
 def resim_fails(data_path, output_path, dataset_props,
-              run_default_body=False, caching=False):
+              run_default_body=False, caching=False, should_pause=None):
     """Resimulate failure cases -- maybe some of them would get fixed"""
+
+    if dataset_props.has('simulation_phase') and dataset_props['simulation_phase'] == 'retry':
+        return batch_sim(
+            data_path, output_path, dataset_props,
+            run_default_body=run_default_body, caching=caching, should_pause=should_pause)
 
     print('************** RESIMULATING FAILS ****************')
 
@@ -172,13 +184,19 @@ def resim_fails(data_path, output_path, dataset_props,
     for sample in to_resim:
         sim_stats['processed'].remove(sample)
 
+    sim_stats['in_progress'] = None
+    dataset_props['simulation_phase'] = 'retry'
+    body_type = 'default_body' if run_default_body else 'random_body'
+    _serialize_props_with_sim_stats(
+        dataset_props, output_path / f'dataset_properties_{body_type}.yaml')
+
     # Start simulation again
     finished = batch_sim(
         data_path, output_path, dataset_props, 
         run_default_body=run_default_body, 
-        num_samples=len(to_resim)+1, 
         caching=caching, 
-        force_restart=False
+        force_restart=False,
+        should_pause=should_pause,
     )
 
     return finished
@@ -270,6 +288,14 @@ def init_sim_props(props, batch_run=False, force_restart=False):
 
     if batch_run and 'processed' in props['sim']['stats'] and not force_restart:
         # resuming existing batch processing -- do not clean stats
+        stats = props['sim']['stats']
+        if 'in_progress' in stats or not stats['processed']:
+            # New checkpoints only list completed attempts. An interrupted
+            # sample is still pending and will be retried naturally.
+            stats.setdefault('in_progress', None)
+            return True
+
+        # Compatibility with checkpoints written before in_progress existed.
         # Assuming the last example processed example caused the failure
         last_processed = props['sim']['stats']['processed'][-1]
 
@@ -286,7 +312,7 @@ def init_sim_props(props, batch_run=False, force_restart=False):
                     props['sim']['stats']['fails']['crashes'].append(last_processed)
 
         props['sim']['stats']['stop_over'].append(last_processed)  # indicate resuming dataset simulation
-
+        stats['in_progress'] = None
 
         return True
 
@@ -317,7 +343,7 @@ def init_sim_props(props, batch_run=False, force_restart=False):
     props.set_section_stats('render', render_time={})
 
     if batch_run:  # track batch processing
-        props.set_section_stats('sim', processed=[], stop_over=[])
+        props.set_section_stats('sim', processed=[], stop_over=[], in_progress=None)
 
     return False
 

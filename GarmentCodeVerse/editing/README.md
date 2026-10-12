@@ -131,12 +131,11 @@ Do not call `generate` again while an active simulation workspace exists.
 ## 3. Simulate and filter
 
 Choose suitable GPUs for the machine, then run the original GarmentCode
-scripts:
+scripts. Simulation uses `sim_config_file` from `system.json`:
 
 ```bash
 python -B pattern_data_sim.py \
-  --data "$OUTPUT_ROOT/.state/simulation_workspace" \
-  --config beautiful_sim_props.yaml
+  --data "$OUTPUT_ROOT/.state/simulation_workspace"
 
 python -B filter_fail_sim.py \
   --gcd_dir "$OUTPUT_ROOT/.state/simulation_workspace" \
