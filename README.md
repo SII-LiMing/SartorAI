@@ -2,6 +2,14 @@
 
 ## TODO
 
-+ [x] 板片数据生成 pipeline 
++ [x] 板片数据采样与模拟 pipeline 
 
-+ [ ] 纹理生成 pipeline
++ [x] 纹理生成与渲染 pipeline
+
++ [ ] vlm_caption pipeline
+
++ [ ] editing pipeline 
+
++ [ ] inference pipeline
+
++ [ ] training code

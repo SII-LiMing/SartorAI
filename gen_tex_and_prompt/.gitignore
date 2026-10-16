@@ -1,0 +1,13 @@
+log*
+codexhouse
+.env
+
+.vscode/
+__pycache__/
+*.pyc
+ckpt
+
+NI-Tex/cfgs/inference_100k.yml
+
+
+detect_weird_output*
